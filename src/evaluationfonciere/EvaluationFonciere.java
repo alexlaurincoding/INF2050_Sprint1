@@ -24,16 +24,36 @@ public class EvaluationFonciere {
             JSONObject fichierEntrer = JSONObject.fromObject(jsonString);
             JSONObject fichierSortie = new JSONObject();
 
-            fichierSortie.accumulate("type_terrain", fichierEntrer.getString("type_terrain"));
-            fichierSortie.accumulate("prix_m2_min", fichierEntrer.getString("prix_m2_min"));
-            fichierSortie.accumulate("prix_m2_max", fichierEntrer.getString("prix_m2_max"));
-            
+            fichierSortie.accumulate("valeur_fonciere_totale", calculValeurFonciereTotale(fichierEntrer));
+            fichierSortie.accumulate("taxe_scolaire", calculTaxeScolaire(fichierEntrer));
+            fichierSortie.accumulate("taxe_municipale", calculTaxeMunicipale(fichierEntrer));
+            fichierSortie.accumulate("lotissement", calculLotissement(fichierEntrer));
+
             FileWriter.saveStringIntoFile(args[1], fichierSortie.toString());
         } catch (IOException e) {
-            System.out.println("Fichier json d'entree introuvable");
+            System.out.println("Une erreur est survenue");
         }
 
-        
+    }
+
+    public static String calculValeurFonciereTotale(JSONObject fichierEntrer) {
+
+        return "";
+    }
+
+    public static String calculTaxeScolaire(JSONObject fichierEntrer) {
+
+        return "";
+    }
+
+    public static String calculTaxeMunicipale(JSONObject fichierEntrer) {
+
+        return "";
+    }
+
+    public static JSONArray calculLotissement(JSONObject fichierEntrer) {
+
+        return null;
     }
 
 }
